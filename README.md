@@ -55,4 +55,7 @@ vertex 1 tidak dimasukan kedalam stack karena sudah pernah dikunjungi
 
 
 ## output:
-![image](https://user-images.githubusercontent.com/74979139/170640753-43763a03-d81f-4eba-bb40-1c63f935ad64.png)
+![image](https://user-images.githubusercontent.com/74979139/170643357-ec7416b0-a58f-4964-a75a-f7e9cccc590a.png)
+
+## OnlineJudge
+![image](https://user-images.githubusercontent.com/74979139/170643417-d6afcadd-f6af-4023-aa8d-ac2d316ef720.png)
