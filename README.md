@@ -12,37 +12,38 @@ link: https://www.eolymp.com/en/problems/4000
 
 ## workflow:
 1. input graph kedalam adjency list
-```py
-    graph = []
-    a, b = map(int, input().split())
-    for i in range(a): graph.append(list(map(int, input().split())))
-    print(dfs(graph, a, b))
+```cpp
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++) cin >> matrix[i][j];
+	}
 ```
 
-2. mulai dari vertex b masukin child nya:
+2. mulai dari vertex s masukin child nya:
 ```py
-    st = []
-    # masukin vertex yang terkoneksi dengan vertex ke b kedalam stack
-    for i in range(0,a): st.append(i) if graph[b][i] == 1 else None
-    graph[b][b] = 1
+    // masukin vertex yang terkoneksi dengan vertex s kedalam stack
+	for (int j = 0; j < n; j++) if (matrix[s][j] == 1) st.push(j);
+	matrix[s][s] = 1;
 ```
 ![image](https://user-images.githubusercontent.com/74979139/170640203-588dc0ce-e39f-417e-bb8f-0640c02c5c99.png)
 
 3. nge loop per isi stack buat cari anak-anak dari anak nya sampai semua vertex yang connected sudah dikunjungi:
 ```py
-    while len(st):
-        node = st.pop()
+	while (!st.empty())
+	{
+		int a = st.top();
+        st.pop();
 ```
 
 4. bila vertex dari stack tersebut belum dikunjungi:
 ```py
-        if (graph[node][node] != 1): # berarti vertex ke-node belung dikunjungi
-            
-            # masukin vertex yang terkoneksi dengan vertex ke node kedalam stack
-            for i in range(0,a): st.append(i) if graph[node][i] == 1 else None 
-            
-            count += 1 # increment nilai count setiap ada vertex yang terhubung dari vertex b
-            graph[node][node] = 1
+		if (matrix[a][a] != 1) // berarti vertex ke-a belung dikunjungi
+		{
+            // masukin vertex yang terkoneksi dengan vertex ke node kedalam stack
+			for (int j = 0; j < n; j++) if (matrix[a][j] == 1) st.push(j);
+			counter++;
+			matrix[a][a] = 1;
+		}
 ```
 ![image](https://user-images.githubusercontent.com/74979139/170640368-4c0a76c4-cafd-4f8d-bec7-5ad39a2e1d98.png)
 
